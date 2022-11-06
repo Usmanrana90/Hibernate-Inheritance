@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cloudxweb.Payment" table="payment">
+		<id name="tx_id" column="TX_ID"/>
+		<property name="pay_date" column="PAY_DATE"/>
+		<property name="pay_amt" column="PAY_AMT"/>
+		
+		<joined-subclass name="cloudxweb.CardPayment" table="card_payment">
+		<key column="TX_ID"/>
+		<property name="card_no" column="CARD_NO"/>
+		<property name="exp_date" column="EXPR_DATE"/>
+		</joined-subclass>
+		
+		<joined-subclass name="cloudxweb.ChequePayment" table="cheque_payment">
+		<key column="TX_ID"/>
+		<property name="cheque_no" column="CHEQUE_NO"/>
+		<property name="exp_date" column="EXPR_DATE"/>
+		
+		</joined-subclass>
+	
+	</class>
+
+</hibernate-mapping>
