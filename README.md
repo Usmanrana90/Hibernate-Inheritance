@@ -1,0 +1,2 @@
+# Hibernate-Inheritance
+Hibernate Inheritance
